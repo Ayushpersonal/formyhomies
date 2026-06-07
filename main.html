@@ -1,0 +1,2508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Best Friend's Day! 🌸</title>
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Fredoka:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #e4effb 0%, #edf7f1 50%, #faf3db 100%);
+            --text-primary: #1e293b;
+            --text-secondary: #5a7fa8;
+            --pink-accent: #ff8b94;
+            --pink-light: #ffd3b6;
+            --envelope-color: #fcece8;
+            --envelope-inner: #fde5e0;
+            --envelope-flap: #f7cccd;
+            --envelope-front: #faece9;
+            --seal-color: #e57c82;
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --shadow-card: 0 20px 50px rgba(90, 127, 168, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        /* Particles Canvas Background */
+        #particles-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* --- STAGE 1: ENVELOPE LANDING --- */
+        #stage-envelope {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            max-width: 500px;
+            width: 100%;
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .envelope-badge {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+            animation: pulse-badge 3s infinite ease-in-out;
+            margin-bottom: 15px;
+        }
+
+        .envelope-badge .heart-icon {
+            color: var(--pink-accent);
+            animation: heartbeat 1.5s infinite;
+        }
+
+        h1.envelope-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .envelope-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .sparkle-char {
+            color: var(--pink-accent);
+            animation: rotate-sparkle 3s infinite linear;
+        }
+
+        /* Bouncing Cat Gif Placement */
+        .sticker-wrapper {
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .dancing-cat {
+            width: 90px;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 6px 12px rgba(90, 127, 168, 0.15));
+            animation: float-sticker 3.5s ease-in-out infinite;
+        }
+
+        /* 3D Envelope Container */
+        .envelope-wrapper {
+            position: relative;
+            width: 320px;
+            height: 200px;
+            margin: 10px auto;
+            perspective: 800px;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .envelope-wrapper:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        .envelope {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: var(--envelope-color);
+            border-radius: 8px;
+            box-shadow: 0 12px 36px rgba(90, 127, 168, 0.12);
+            transform-style: preserve-3d;
+        }
+
+        /* Inner Pocket */
+        .envelope-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--envelope-inner);
+            border-radius: 8px;
+            z-index: 1;
+        }
+
+        /* Left, Right & Bottom Flaps */
+        .envelope-front {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 160px 105px 160px;
+            border-color: transparent transparent var(--envelope-front) transparent;
+            bottom: 0;
+            left: 0;
+            z-index: 3;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .envelope-front::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 100px 0 100px 160px;
+            border-color: transparent transparent transparent rgba(253, 229, 224, 0.95);
+            top: -100px;
+            left: -160px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .envelope-front::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 100px 160px 100px 0;
+            border-color: transparent rgba(253, 229, 224, 0.95) transparent transparent;
+            top: -100px;
+            right: -160px;
+            border-bottom-right-radius: 8px;
+        }
+
+        /* Folding Top Flap */
+        .envelope-top {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 100px 160px 0 160px;
+            border-color: var(--envelope-flap) transparent transparent transparent;
+            top: 0;
+            left: 0;
+            transform-origin: top;
+            z-index: 4;
+            transition: transform 0.4s ease 0.1s, z-index 0.2s ease 0.2s;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.04));
+        }
+
+        /* Fake letter stub */
+        .envelope-letter-stub {
+            position: absolute;
+            width: 290px;
+            height: 150px;
+            background: #ffffff;
+            left: 15px;
+            top: 15px;
+            border-radius: 6px;
+            z-index: 2;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.3s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            color: var(--pink-accent);
+            font-weight: bold;
+        }
+
+        /* Circular Wax Seal */
+        .wax-seal {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            background-color: var(--seal-color);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -10px);
+            z-index: 5;
+            box-shadow: 0 4px 10px rgba(229, 124, 130, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: #fff;
+            font-weight: 700;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+            user-select: none;
+        }
+
+        .wax-seal::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+        }
+
+        .envelope-wrapper:hover .wax-seal {
+            transform: translate(-50%, -10px) scale(1.1) rotate(5deg);
+        }
+
+        /* Interactive Opening Actions */
+        .envelope-wrapper.open .envelope-top {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        .envelope-wrapper.open .wax-seal {
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, -10px) scale(0.5);
+        }
+
+        .envelope-wrapper.open .envelope-letter-stub {
+            transform: translateY(-130px);
+            z-index: 10;
+        }
+
+        .envelope-tap-prompt {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-top: 25px;
+            letter-spacing: 1.5px;
+            animation: pulse-text 2s infinite ease-in-out;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            user-select: none;
+        }
+
+
+        /* --- STAGE 1.5: INTERACTIVE NOTES STAGE --- */
+        #stage-notes {
+            display: none;
+            opacity: 0;
+            transform: scale(0.9) translateY(30px);
+            filter: blur(10px);
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 20px;
+            max-width: 500px;
+            width: 100%;
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .notes-badge {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            padding: 8px 18px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #d97706;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        h2.notes-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .notes-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+        }
+
+        /* Cards Layout Deck */
+        .cards-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: -15px; /* overlap into envelope cup */
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 3D Flip Card Component */
+        .flip-card {
+            background-color: transparent;
+            width: 118px;
+            height: 205px;
+            perspective: 1000px;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        /* Float up and rotate when flipped */
+        .flip-card.flipped {
+            transform: translateY(-20px) !important;
+            z-index: 50;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            padding: 15px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(90, 127, 168, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        /* Pick Me Text */
+        .pick-me-text {
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: auto;
+            user-select: none;
+        }
+
+        /* Card color variants */
+        .card-pink {
+            background: rgba(255, 241, 242, 0.95);
+        }
+        .card-pink .pick-me-text, .card-pink .back-header {
+            color: #f43f5e;
+        }
+        .card-pink .mini-flower-icon {
+            fill: #f43f5e;
+        }
+
+        .card-orange {
+            background: rgba(255, 247, 237, 0.95);
+        }
+        .card-orange .pick-me-text, .card-orange .back-header {
+            color: #d97706;
+        }
+        .card-orange .mini-flower-icon {
+            fill: #d97706;
+        }
+
+        .card-purple {
+            background: rgba(245, 243, 255, 0.95);
+        }
+        .card-purple .pick-me-text, .card-purple .back-header {
+            color: #7c3aed;
+        }
+        .card-purple .mini-flower-icon {
+            fill: #7c3aed;
+        }
+
+        /* Back side of cards */
+        .flip-card-back {
+            transform: rotateY(180deg);
+            padding: 18px 8px 10px 8px;
+            text-align: center;
+        }
+
+        .mini-flower-icon {
+            width: 18px;
+            height: 18px;
+            margin-bottom: 8px;
+        }
+
+        .back-header {
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            line-height: 1.2;
+            width: 100%;
+        }
+
+        .back-quote {
+            font-family: 'Caveat', cursive;
+            font-size: 1.15rem;
+            line-height: 1.3;
+            color: #334155;
+            font-weight: 700;
+        }
+
+        /* Card Front SVG illustration */
+        .card-rose-svg {
+            width: 44px;
+            height: 44px;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        /* Envelope Cup pocket at bottom */
+        .envelope-cup-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        #envelope-cup {
+            width: 180px;
+            height: 60px;
+            background: #e5ccb4;
+            border: 2px solid #a37c5a;
+            border-top: none;
+            border-radius: 0 0 35px 35px;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(163, 124, 90, 0.12);
+        }
+
+        #envelope-cup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 106%;
+            height: 6px;
+            background: #a37c5a;
+            border-radius: 3px;
+        }
+
+        #envelope-cup::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            width: 12px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            transform: rotate(15deg);
+        }
+
+        /* Entry Cascadings */
+        #stage-notes.show-cards .flip-card:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+        #stage-notes.show-cards .flip-card:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
+        #stage-notes.show-cards .flip-card:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+
+        /* Stage 1.5 Proceed Button */
+        #notes-proceed-btn {
+            display: inline-flex;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+
+        #notes-proceed-btn.show {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+            animation: bounce-attention 2.5s infinite alternate ease-in-out;
+        }
+
+        @keyframes bounce-attention {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-4px) scale(1.03); }
+        }
+
+
+        /* --- STAGE 1.7: THANK YOU CARD STAGE --- */
+        #stage-thanks {
+            display: none;
+            opacity: 0;
+            transform: scale(0.9) translateY(30px);
+            filter: blur(10px);
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 20px;
+            max-width: 440px;
+            width: 100%;
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .thanks-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 28px;
+            padding: 55px 25px 35px 25px;
+            box-shadow: var(--shadow-card);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Center overlapping avatar */
+        .thanks-avatar-container {
+            position: absolute;
+            top: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 86px;
+            height: 86px;
+            border-radius: 50%;
+            background: #fff;
+            padding: 4px;
+            box-shadow: 0 10px 25px rgba(90, 127, 168, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+        }
+
+        .thanks-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 10px;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .thanks-message {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #475569;
+            font-weight: 400;
+            margin-bottom: 25px;
+            text-align: center;
+            padding: 0 5px;
+        }
+
+
+        /* --- STAGE 2: BEST FRIEND'S CARD PAGE --- */
+        #stage-card {
+            display: none;
+            opacity: 0;
+            transform: scale(0.9) translateY(30px);
+            filter: blur(10px);
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 20px;
+            max-width: 490px;
+            width: 100%;
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* Transparent Glassmorphic Main Card */
+        .main-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 28px;
+            padding: 45px 30px 35px 30px;
+            box-shadow: var(--shadow-card);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 25px;
+        }
+
+        /* Watercolor SVG Flowers at Corners */
+        .flower-top-left, .flower-top-right, .flower-bottom-right {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            pointer-events: none;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.02));
+        }
+
+        .flower-top-left {
+            top: -15px;
+            left: -15px;
+        }
+
+        .flower-top-right {
+            top: -15px;
+            right: -15px;
+        }
+
+        .flower-bottom-right {
+            bottom: -15px;
+            right: -15px;
+        }
+
+        /* Avatar Circle overlapping card top */
+        .avatar-container {
+            position: absolute;
+            top: -45px;
+            right: 40px;
+            width: 86px;
+            height: 86px;
+            border-radius: 50%;
+            background: #fff;
+            padding: 4px;
+            box-shadow: 0 10px 25px rgba(90, 127, 168, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+        }
+
+        .avatar-glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+            pointer-events: none;
+            animation: avatar-glow-pulse 3s infinite alternate ease-in-out;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #f1f5f9;
+        }
+
+        /* Partner in Crime Pill Badge */
+        .crime-badge {
+            background: rgba(254, 237, 222, 0.85);
+            border: 1px solid rgba(253, 186, 116, 0.3);
+            border-radius: 50px;
+            padding: 8px 18px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #d97706;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(251, 146, 60, 0.05);
+        }
+
+        /* Card Typography */
+        h2.card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            line-height: 1.1;
+        }
+
+        .card-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            color: #3b82f6;
+            margin-bottom: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Dotted Separator with Flower */
+        .card-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            color: #cbd5e1;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            user-select: none;
+        }
+
+        .card-divider .dots {
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        .card-divider .divider-flower {
+            color: #fca5a5;
+            font-size: 1rem;
+        }
+
+        /* Card Message Body */
+        .card-message {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #475569;
+            font-weight: 400;
+            margin-bottom: 25px;
+            text-align: center;
+            padding: 0 5px;
+        }
+
+        /* --- MUSIC PLAYER CONTAINER --- */
+        .music-player {
+            width: 100%;
+            background: #ffffff;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-radius: 20px;
+            padding: 15px 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .player-sticker-frame {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .player-sticker {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+        }
+
+        .player-info {
+            flex-grow: 1;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .track-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .track-tag {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            margin-top: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Progress Bar */
+        .progress-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            margin-top: 6px;
+        }
+
+        .progress-time {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #94a3b8;
+            min-width: 26px;
+        }
+
+        .progress-container {
+            flex-grow: 1;
+            height: 4px;
+            background: #f1f5f9;
+            border-radius: 3px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--pink-accent);
+            border-radius: 3px;
+            width: 0%;
+            position: relative;
+        }
+
+        .progress-handle {
+            position: absolute;
+            right: -6px;
+            top: -4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--pink-accent);
+            box-shadow: 0 0 6px rgba(229, 124, 130, 0.4);
+            transition: transform 0.1s ease;
+        }
+
+        /* Play button */
+        .play-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: var(--seal-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(229, 124, 130, 0.3);
+            border: none;
+            outline: none;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.06);
+            background-color: #e26e74;
+            box-shadow: 0 6px 14px rgba(229, 124, 130, 0.4);
+        }
+
+        .play-btn svg {
+            fill: #ffffff;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Player Caption text */
+        .player-caption {
+            font-family: 'Caveat', cursive;
+            font-size: 1.25rem;
+            color: #3b82f6;
+            margin-top: 3px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* SEE OUR ALBUM BUTTON */
+        .album-trigger-btn, .return-greeting-btn {
+            background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+            border: none;
+            border-radius: 50px;
+            color: #ffffff;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 14px 32px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            outline: none;
+            z-index: 10;
+        }
+
+        .album-trigger-btn:hover, .return-greeting-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+        }
+
+
+        /* --- STAGE 3: INTERACTIVE SLIDING SCRAPBOOK ALBUM --- */
+        #stage-album {
+            display: none;
+            opacity: 0;
+            transform: scale(0.9) translateY(30px);
+            filter: blur(10px);
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 20px;
+            max-width: 480px;
+            width: 100%;
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .album-badge {
+            background: rgba(239, 246, 255, 0.9);
+            border: 1px solid rgba(191, 219, 254, 0.5);
+            border-radius: 50px;
+            padding: 8px 18px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #1d4ed8;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .album-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .album-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+        }
+
+        /* Carousel Component Structure */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            margin: 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-viewport {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 28px;
+            padding: 15px 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            width: 300%; /* 3 cards */
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .carousel-card-item {
+            width: 33.333%;
+            display: flex;
+            justify-content: center;
+            padding: 0 10px;
+        }
+
+        /* Scrapbook Polaroid Card */
+        .scrapbook-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            border-radius: 26px;
+            padding: 35px 24px 24px 24px;
+            box-shadow: var(--shadow-card);
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Pink rip tape decoration */
+        .card-tape {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-1deg);
+            width: 80px;
+            height: 20px;
+            background: rgba(244, 162, 177, 0.35);
+            border-left: 1px dashed rgba(244, 162, 177, 0.6);
+            border-right: 1px dashed rgba(244, 162, 177, 0.6);
+            z-index: 10;
+        }
+
+        .scrapbook-img-frame {
+            width: 100%;
+            aspect-ratio: 1;
+            border: 6px solid #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(90, 127, 168, 0.08);
+            overflow: hidden;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8fafc;
+        }
+
+        .scrapbook-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .scrapbook-info {
+            text-align: center;
+        }
+
+        .memory-number {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .memory-caption {
+            font-family: 'Caveat', cursive;
+            font-size: 1.4rem;
+            color: #2c3e50;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        /* Floating Carousel arrow buttons */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            color: #3b82f6;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(90, 127, 168, 0.1);
+            z-index: 40;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            outline: none;
+            user-select: none;
+        }
+
+        .carousel-arrow:hover {
+            background: #f8fafc;
+            transform: translateY(-50%) scale(1.08);
+            box-shadow: 0 10px 25px rgba(90, 127, 168, 0.15);
+        }
+
+        .prev-arrow {
+            left: -22px;
+        }
+
+        .next-arrow {
+            right: -22px;
+        }
+
+        /* Pagination Indicators */
+        .carousel-dots {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 5px;
+            margin-bottom: 25px;
+            user-select: none;
+        }
+
+        .carousel-dots .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(229, 124, 130, 0.25);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .carousel-dots .dot.active {
+            background: var(--seal-color);
+            transform: scale(1.25);
+        }
+
+
+        /* --- STAGE 4: RULED NOTEBOOK LETTER FINAL STAGE --- */
+        #stage-letter {
+            display: none;
+            opacity: 0;
+            transform: scale(0.9) translateY(30px);
+            filter: blur(10px);
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 20px;
+            max-width: 440px;
+            width: 100%;
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .letter-card {
+            position: relative;
+            background-color: #fefcf6; /* Cream notebook color */
+            background-image: 
+                linear-gradient(transparent 27px, rgba(147, 197, 253, 0.3) 27px);
+            background-size: 100% 28px;
+            background-position: 0 78px;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            border-radius: 28px;
+            padding: 78px 25px 35px 45px; /* left indent padding for red margin line */
+            box-shadow: var(--shadow-card);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 60px;
+        }
+
+        /* Red vertical notebook margin line */
+        .letter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 36px;
+            width: 1.5px;
+            height: 100%;
+            background: rgba(248, 113, 113, 0.45);
+            z-index: 1;
+        }
+
+        .letter-avatar-container {
+            position: absolute;
+            top: -55px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #ffffff;
+            padding: 4px;
+            box-shadow: 0 10px 25px rgba(90, 127, 168, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+        }
+
+        .letter-avatar-border {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #a5f3fc, #38bdf8, #c084fc);
+            padding: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .letter-avatar-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #ffffff;
+            padding: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .letter-avatar-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .letter-tag-header {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: #3b82f6;
+            text-transform: uppercase;
+            text-align: center;
+            width: 100%;
+            display: block;
+            margin-top: 0;
+            margin-bottom: 28px; /* exactly 1 line-height */
+            line-height: 28px;
+            height: 28px;
+        }
+
+        .letter-dear {
+            font-family: 'Caveat', cursive;
+            font-size: 2.1rem;
+            color: #1e293b;
+            margin: 0 0 28px 0; /* exactly 1 line-height */
+            line-height: 28px;
+            height: 28px;
+            font-weight: 700;
+            padding-left: 5px;
+        }
+
+        .letter-body-p {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 300;
+            font-size: 0.92rem;
+            line-height: 28px;
+            color: #334155;
+            margin: 0 0 28px 0; /* exactly 1 line-height gap between paragraphs */
+            padding-left: 5px;
+        }
+
+        /* Separator dotted with heart icon */
+        .letter-end-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            margin: 0 0 28px 0;
+            line-height: 28px;
+            height: 28px;
+            padding-left: 5px;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        .letter-end-divider .heart-icon {
+            font-size: 1.15rem;
+            line-height: 28px;
+        }
+
+        .letter-end-divider .divider-line {
+            flex-grow: 1;
+            height: 1px;
+            border-bottom: 2px dotted #c084fc; /* purple dots */
+            opacity: 0.65;
+        }
+
+        .letter-signature {
+            font-family: 'Caveat', cursive;
+            font-size: 1.95rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0 0 28px 0;
+            line-height: 28px;
+            height: 28px;
+            padding-left: 5px;
+        }
+
+        .letter-tag-footer {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: #3b82f6;
+            text-transform: uppercase;
+            padding-left: 5px;
+            line-height: 28px;
+            height: 28px;
+            display: block;
+        }
+
+        /* Outside bottom elements */
+        .letter-outside-footer {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #7b99b8;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            display: block;
+            text-align: center;
+        }
+
+        .start-again-btn {
+            background: #ffffff;
+            border: 1.5px dashed #38bdf8;
+            border-radius: 50px;
+            color: #38bdf8;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 10px 24px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+            outline: none;
+            user-select: none;
+            margin: 0 auto;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .start-again-btn:hover {
+            background: #f0f9ff;
+            border-color: #0284c7;
+            color: #0284c7;
+            transform: scale(1.02);
+        }
+
+
+        /* Keyframes & glow updates */
+        @keyframes avatar-glow-pulse {
+            0% { box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
+            100% { box-shadow: 0 0 25px rgba(56, 189, 248, 0.55); }
+        }
+
+        /* Responsive UI adaptations */
+        @media (max-width: 420px) {
+            .prev-arrow { left: -10px; }
+            .next-arrow { right: -10px; }
+            .cards-row { gap: 6px; }
+            .flip-card { width: 100px; height: 180px; }
+            .back-header { font-size: 0.52rem; margin-bottom: 6px; }
+            .back-quote { font-size: 0.95rem; }
+            .card-rose-svg { width: 34px; height: 34px; }
+            .letter-card { padding: 50px 15px 30px 32px; }
+            .letter-card::before { left: 24px; }
+        }
+
+        @media (max-width: 380px) {
+            .envelope-wrapper {
+                width: 280px;
+                height: 180px;
+            }
+            .envelope-front {
+                border-width: 0 140px 95px 140px;
+            }
+            .envelope-front::before {
+                border-width: 90px 0 90px 140px;
+                top: -90px;
+                left: -140px;
+            }
+            .envelope-front::after {
+                border-width: 90px 140px 90px 0;
+                top: -90px;
+                right: -140px;
+            }
+            .envelope-top {
+                border-width: 90px 140px 0 140px;
+            }
+            .envelope-letter-stub {
+                width: 250px;
+                height: 140px;
+            }
+            .main-card, .scrapbook-card, .thanks-card, .letter-card {
+                padding: 40px 15px 25px 15px;
+            }
+            .letter-card { padding-left: 28px; }
+            .letter-card::before { left: 20px; }
+            h1.envelope-title, h2.card-title {
+                font-size: 1.8rem;
+            }
+            .avatar-container {
+                right: 20px;
+            }
+            .flip-card { width: 92px; height: 170px; }
+            .back-quote { font-size: 0.85rem; }
+            .thanks-title { font-size: 1.7rem; }
+            .letter-dear { font-size: 1.6rem; }
+            .letter-body-p { font-size: 0.85rem; }
+            .letter-signature { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Local MP3 Audio Element -->
+    <audio id="bg-music" src="Aashiyan%20Barfi%20128%20Kbps.mp3" loop></audio>
+
+    <!-- Canvas for Floating Hearts & Sparkles -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- STAGE 1: ENVELOPE LANDING STAGE -->
+    <div id="stage-envelope">
+        <!-- Bestie Badge -->
+        <div class="envelope-badge">
+            <span class="heart-icon">🌸</span> FOR MY BESTIE
+        </div>
+
+        <!-- Typography Headers -->
+        <h1 class="envelope-title">a little something for you</h1>
+        <div class="envelope-subtitle">
+            happy best friend's day <span class="sparkle-char">✦</span>
+        </div>
+
+        <!-- Bouncing Cat Sticker -->
+        <div class="sticker-wrapper">
+            <img class="dancing-cat" 
+                 src="Baby%20Cat%20Dancing%20Png%20GIF%20-%20Baby%20cat%20dancing%20png%20-%20Discover%20%26%20Share%20GIFs.gif" 
+                 alt="Dancing Baby Cat">
+        </div>
+
+        <!-- CSS 3D Envelope -->
+        <div class="envelope-wrapper" id="envelope-trigger">
+            <div class="envelope">
+                <!-- Outer folding lid -->
+                <div class="envelope-top"></div>
+                
+                <!-- Inner pocket backdrop -->
+                <div class="envelope-back"></div>
+                
+                <!-- Fake sliding letter card -->
+                <div class="envelope-letter-stub">
+                    Opening card... ✨
+                </div>
+
+                <!-- Envelope side flaps & bottom overlay -->
+                <div class="envelope-front"></div>
+
+                <!-- Wax Seal -->
+                <div class="wax-seal">K</div>
+            </div>
+        </div>
+
+        <!-- Bottom Tap Helper Prompt -->
+        <div class="envelope-tap-prompt">
+            TAP TO OPEN <span class="sparkle-char">✦</span>
+        </div>
+    </div>
+
+    <!-- STAGE 1.5: INTERACTIVE NOTES STAGE -->
+    <div id="stage-notes">
+        <!-- Notes Badge -->
+        <div class="notes-badge">
+            💖 THREE NOTES FOR BESTIE
+        </div>
+
+        <!-- Heading Text -->
+        <h2 class="notes-title">three things i never said out loud</h2>
+        <p class="notes-subtitle">tap each card — there's a note inside ✦</p>
+
+        <!-- 3D Flip Card Deck -->
+        <div class="cards-row">
+            
+            <!-- Card 1 (Pink) -->
+            <div class="flip-card card-pink" data-note-id="1">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front card-pink">
+                        <svg class="card-rose-svg" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="14" fill="#fae8eb" />
+                            <circle cx="50" cy="28" r="17" fill="rgba(244, 63, 94, 0.18)" />
+                            <circle cx="50" cy="72" r="17" fill="rgba(244, 63, 94, 0.18)" />
+                            <circle cx="28" cy="50" r="17" fill="rgba(244, 63, 94, 0.18)" />
+                            <circle cx="72" cy="50" r="17" fill="rgba(244, 63, 94, 0.18)" />
+                            <circle cx="34" cy="34" r="17" fill="rgba(244, 63, 94, 0.12)" />
+                            <circle cx="66" cy="66" r="17" fill="rgba(244, 63, 94, 0.12)" />
+                            <circle cx="34" cy="66" r="17" fill="rgba(244, 63, 94, 0.12)" />
+                            <circle cx="66" cy="34" r="17" fill="rgba(244, 63, 94, 0.12)" />
+                            <circle cx="50" cy="50" r="10" fill="#f43f5e" />
+                        </svg>
+                        <span class="pick-me-text">Pick Me</span>
+                    </div>
+                    <div class="flip-card-back card-pink">
+                        <svg class="mini-flower-icon" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="15" fill="#f43f5e" />
+                            <circle cx="50" cy="25" r="20" fill="rgba(244, 63, 94, 0.4)" />
+                            <circle cx="50" cy="75" r="20" fill="rgba(244, 63, 94, 0.4)" />
+                            <circle cx="25" cy="50" r="20" fill="rgba(244, 63, 94, 0.4)" />
+                            <circle cx="75" cy="50" r="20" fill="rgba(244, 63, 94, 0.4)" />
+                        </svg>
+                        <span class="back-header">✿ You Had My Back ✿</span>
+                        <p class="back-quote">
+                            you've covered for me, fought for me, and shown up for me more times than i can count. i noticed every single one.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 (Peach) -->
+            <div class="flip-card card-orange" data-note-id="2">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front card-orange">
+                        <svg class="card-rose-svg" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="14" fill="#faf0e6" />
+                            <circle cx="50" cy="28" r="17" fill="rgba(217, 119, 6, 0.18)" />
+                            <circle cx="50" cy="72" r="17" fill="rgba(217, 119, 6, 0.18)" />
+                            <circle cx="28" cy="50" r="17" fill="rgba(217, 119, 6, 0.18)" />
+                            <circle cx="72" cy="50" r="17" fill="rgba(217, 119, 6, 0.18)" />
+                            <circle cx="34" cy="34" r="17" fill="rgba(217, 119, 6, 0.12)" />
+                            <circle cx="66" cy="66" r="17" fill="rgba(217, 119, 6, 0.12)" />
+                            <circle cx="34" cy="66" r="17" fill="rgba(217, 119, 6, 0.12)" />
+                            <circle cx="66" cy="34" r="17" fill="rgba(217, 119, 6, 0.12)" />
+                            <circle cx="50" cy="50" r="10" fill="#d97706" />
+                        </svg>
+                        <span class="pick-me-text">Pick Me</span>
+                    </div>
+                    <div class="flip-card-back card-orange">
+                        <svg class="mini-flower-icon" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="15" fill="#d97706" />
+                            <circle cx="50" cy="25" r="20" fill="rgba(217, 119, 6, 0.4)" />
+                            <circle cx="50" cy="75" r="20" fill="rgba(217, 119, 6, 0.4)" />
+                            <circle cx="25" cy="50" r="20" fill="rgba(217, 119, 6, 0.4)" />
+                            <circle cx="75" cy="50" r="20" fill="rgba(217, 119, 6, 0.4)" />
+                        </svg>
+                        <span class="back-header">✿ You Make Me Laugh ✿</span>
+                        <p class="back-quote">
+                            no one roasts me like you. no one cheers me up like you either. i'd pick our brand of nonsense any day.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 (Purple) -->
+            <div class="flip-card card-purple" data-note-id="3">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front card-purple">
+                        <svg class="card-rose-svg" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="14" fill="#f5eeff" />
+                            <circle cx="50" cy="28" r="17" fill="rgba(124, 58, 237, 0.18)" />
+                            <circle cx="50" cy="72" r="17" fill="rgba(124, 58, 237, 0.18)" />
+                            <circle cx="28" cy="50" r="17" fill="rgba(124, 58, 237, 0.18)" />
+                            <circle cx="72" cy="50" r="17" fill="rgba(124, 58, 237, 0.18)" />
+                            <circle cx="34" cy="34" r="17" fill="rgba(124, 58, 237, 0.12)" />
+                            <circle cx="66" cy="66" r="17" fill="rgba(124, 58, 237, 0.12)" />
+                            <circle cx="34" cy="66" r="17" fill="rgba(124, 58, 237, 0.12)" />
+                            <circle cx="66" cy="34" r="17" fill="rgba(124, 58, 237, 0.12)" />
+                            <circle cx="50" cy="50" r="10" fill="#7c3aed" />
+                        </svg>
+                        <span class="pick-me-text">Pick Me</span>
+                    </div>
+                    <div class="flip-card-back card-purple">
+                        <svg class="mini-flower-icon" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="15" fill="#7c3aed" />
+                            <circle cx="50" cy="25" r="20" fill="rgba(124, 58, 237, 0.4)" />
+                            <circle cx="50" cy="75" r="20" fill="rgba(124, 58, 237, 0.4)" />
+                            <circle cx="25" cy="50" r="20" fill="rgba(124, 58, 237, 0.4)" />
+                            <circle cx="75" cy="50" r="20" fill="rgba(124, 58, 237, 0.4)" />
+                        </svg>
+                        <span class="back-header">✿ You Are My Safe Place ✿</span>
+                        <p class="back-quote">
+                            through every high and low, you've been my constant anchor. thank you for simply being you—my absolute favorite human.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Envelope pocket base container -->
+        <div class="envelope-cup-wrapper">
+            <div id="envelope-cup"></div>
+        </div>
+
+        <!-- Proceed Button -->
+        <button class="album-trigger-btn" id="notes-proceed-btn">
+            OPEN NEXT CARD →
+        </button>
+
+    </div>
+
+    <!-- STAGE 1.7: THANK YOU CARD STAGE -->
+    <div id="stage-thanks">
+        <div class="thanks-card">
+            <!-- Corner watercolor vector flowers -->
+            <svg class="flower-top-left" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="15" fill="#fcdcd3" />
+                <circle cx="50" cy="25" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                <circle cx="50" cy="75" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                <circle cx="25" cy="50" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                <circle cx="75" cy="50" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                <circle cx="32" cy="32" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                <circle cx="68" cy="68" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                <circle cx="32" cy="68" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                <circle cx="68" cy="32" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                <circle cx="50" cy="50" r="12" fill="#e57c82" />
+            </svg>
+
+            <svg class="flower-top-right" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="15" fill="#faece9" />
+                <circle cx="50" cy="25" r="19" fill="rgba(253, 211, 182, 0.75)" />
+                <circle cx="50" cy="75" r="19" fill="rgba(253, 211, 182, 0.75)" />
+                <circle cx="25" cy="50" r="19" fill="rgba(253, 211, 182, 0.75)" />
+                <circle cx="75" cy="50" r="19" fill="rgba(253, 211, 182, 0.75)" />
+                <circle cx="32" cy="32" r="19" fill="rgba(253, 211, 182, 0.65)" />
+                <circle cx="68" cy="68" r="19" fill="rgba(253, 211, 182, 0.65)" />
+                <circle cx="32" cy="68" r="19" fill="rgba(253, 211, 182, 0.65)" />
+                <circle cx="68" cy="32" r="19" fill="rgba(253, 211, 182, 0.65)" />
+                <circle cx="50" cy="50" r="12" fill="#f4a261" />
+            </svg>
+
+            <svg class="flower-bottom-right" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="15" fill="#f3ebff" />
+                <circle cx="50" cy="25" r="19" fill="rgba(216, 180, 254, 0.75)" />
+                <circle cx="50" cy="75" r="19" fill="rgba(216, 180, 254, 0.75)" />
+                <circle cx="25" cy="50" r="19" fill="rgba(216, 180, 254, 0.75)" />
+                <circle cx="75" cy="50" r="19" fill="rgba(216, 180, 254, 0.75)" />
+                <circle cx="32" cy="32" r="19" fill="rgba(216, 180, 254, 0.65)" />
+                <circle cx="68" cy="68" r="19" fill="rgba(216, 180, 254, 0.65)" />
+                <circle cx="32" cy="68" r="19" fill="rgba(216, 180, 254, 0.65)" />
+                <circle cx="68" cy="32" r="19" fill="rgba(216, 180, 254, 0.65)" />
+                <circle cx="50" cy="50" r="12" fill="#a855f7" />
+            </svg>
+
+            <!-- Center overlapping avatar -->
+            <div class="thanks-avatar-container">
+                <div class="avatar-glow"></div>
+                <img class="avatar-img" src="WEBP-36-1-500x500.webp" alt="Bestie Character">
+            </div>
+
+            <!-- Title -->
+            <h2 class="thanks-title">thank you, bestie.</h2>
+
+            <!-- Paragraph message -->
+            <p class="thanks-message">
+                for the laughs, the comebacks, the bad jokes, and the rare-but-perfect serious talks. for being the constant. happy best friend's day — you deserve every bit of this and more.
+            </p>
+
+            <!-- Proceed button -->
+            <button class="album-trigger-btn" id="thanks-proceed-btn">
+                READ MY LETTER →
+            </button>
+        </div>
+    </div>
+
+    <!-- STAGE 2: CARD PAGE STAGE (Main Greeting Card) -->
+    <div id="stage-card">
+        <div class="main-card">
+            
+            <!-- Watercolor Vector SVG Flowers at Card Corners -->
+            <svg class="flower-top-left" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="15" fill="#fcdcd3" />
+                <circle cx="50" cy="25" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                <circle cx="50" cy="75" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                <circle cx="25" cy="50" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                <circle cx="75" cy="50" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                <circle cx="32" cy="32" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                <circle cx="68" cy="68" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                <circle cx="32" cy="68" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                <circle cx="68" cy="32" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                <circle cx="50" cy="50" r="12" fill="#e57c82" />
+            </svg>
+
+            <svg class="flower-top-right" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="15" fill="#faece9" />
+                <circle cx="50" cy="25" r="19" fill="rgba(253, 211, 182, 0.75)" />
+                <circle cx="50" cy="75" r="19" fill="rgba(253, 211, 182, 0.75)" />
+                <circle cx="25" cy="50" r="19" fill="rgba(253, 211, 182, 0.75)" />
+                <circle cx="75" cy="50" r="19" fill="rgba(253, 211, 182, 0.75)" />
+                <circle cx="32" cy="32" r="19" fill="rgba(253, 211, 182, 0.65)" />
+                <circle cx="68" cy="68" r="19" fill="rgba(253, 211, 182, 0.65)" />
+                <circle cx="32" cy="68" r="19" fill="rgba(253, 211, 182, 0.65)" />
+                <circle cx="68" cy="32" r="19" fill="rgba(253, 211, 182, 0.65)" />
+                <circle cx="50" cy="50" r="12" fill="#f4a261" />
+            </svg>
+
+            <!-- Circular Avatar with Neon Glow -->
+            <div class="avatar-container">
+                <div class="avatar-glow"></div>
+                <img class="avatar-img" src="WEBP-36-1-500x500.webp" alt="Bestie Character">
+            </div>
+
+            <!-- Partner in Crime badge -->
+            <div class="crime-badge">
+                ❤️ FOR MY FAVOURITE PARTNER-IN-CRIME
+            </div>
+
+            <!-- Headings -->
+            <h2 class="card-title">Happy Best Friend's Day</h2>
+            <div class="card-subtitle">for my bestie ✦</div>
+
+            <!-- Dots divider -->
+            <div class="card-divider">
+                <span class="dots">·················</span>
+                <span class="divider-flower">✿</span>
+                <span class="dots">·················</span>
+            </div>
+
+            <!-- Letter text message -->
+            <p class="card-message">
+                Today is yours. A little corner of the internet — built just to say thanks for every inside joke we still laugh about, every secret we kept, and every time you had my back. Stay a while, bestie.
+            </p>
+
+            <!-- MUSIC PLAYER -->
+            <div class="music-player">
+                <!-- Left sticker frame -->
+                <div class="player-sticker-frame">
+                    <img class="player-sticker" 
+                         src="Happy%20In%20Love%20Sticker%20by%20KIKI%20-%20Find%20%26%20Share%20on%20GIPHY.gif" 
+                         alt="Music note avatar">
+                </div>
+
+                <!-- Track info and Progress -->
+                <div class="player-info">
+                    <span class="track-name">Ashiyan</span>
+                    <span class="track-tag">A Track For You</span>
+                    
+                    <div class="progress-wrapper">
+                        <span class="progress-time" id="time-current">0:00</span>
+                        <div class="progress-container" id="timeline-click">
+                            <div class="progress-bar" id="music-progress">
+                                <div class="progress-handle"></div>
+                            </div>
+                        </div>
+                        <span class="progress-time" id="time-duration">0:59</span>
+                    </div>
+                </div>
+
+                <!-- Play Button -->
+                <button class="play-btn" id="player-play-btn">
+                    <!-- Play Arrow SVG -->
+                    <svg id="play-icon" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Blue subtitle caption -->
+            <p class="player-caption">
+                press play – this one always reminds me of you and our long drives.
+            </p>
+        </div>
+
+        <!-- SEE ALBUM TRIGGER BUTTON -->
+        <button class="album-trigger-btn" id="open-album-btn">
+            SEE OUR ALBUM →
+        </button>
+    </div>
+
+    <!-- STAGE 3: INTERACTIVE SLIDING SCRAPBOOK ALBUM -->
+    <div id="stage-album">
+        <!-- Album badge -->
+        <div class="album-badge">
+            💖 OUR ALBUM · BESTIE
+        </div>
+
+        <!-- Typography Headers -->
+        <h2 class="album-title">our little album</h2>
+        <div class="album-subtitle">a few moments i never want to forget ♡</div>
+
+        <!-- Carousel Container -->
+        <div class="carousel-container">
+            <!-- Left and Right arrows -->
+            <button class="carousel-arrow prev-arrow" id="prev-slide-btn">←</button>
+            <button class="carousel-arrow next-arrow" id="next-slide-btn">→</button>
+
+            <!-- Card Viewport -->
+            <div class="carousel-viewport">
+                <div class="carousel-track" id="carousel-track">
+                    
+                    <!-- Card 1 -->
+                    <div class="carousel-card-item">
+                        <div class="scrapbook-card">
+                            <div class="card-tape"></div>
+                            <!-- SVG Corner Flower Top Left -->
+                            <svg class="flower-top-left" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="15" fill="#fcdcd3" />
+                                <circle cx="50" cy="25" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                                <circle cx="50" cy="75" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                                <circle cx="25" cy="50" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                                <circle cx="75" cy="50" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                                <circle cx="32" cy="32" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                                <circle cx="68" cy="68" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                                <circle cx="32" cy="68" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                                <circle cx="68" cy="32" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                                <circle cx="50" cy="50" r="12" fill="#e57c82" />
+                            </svg>
+
+                            <!-- SVG Corner Flower Bottom Right -->
+                            <svg class="flower-bottom-right" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="15" fill="#f3ebff" />
+                                <circle cx="50" cy="25" r="19" fill="rgba(216, 180, 254, 0.75)" />
+                                <circle cx="50" cy="75" r="19" fill="rgba(216, 180, 254, 0.75)" />
+                                <circle cx="25" cy="50" r="19" fill="rgba(216, 180, 254, 0.75)" />
+                                <circle cx="75" cy="50" r="19" fill="rgba(216, 180, 254, 0.75)" />
+                                <circle cx="32" cy="32" r="19" fill="rgba(216, 180, 254, 0.65)" />
+                                <circle cx="68" cy="68" r="19" fill="rgba(216, 180, 254, 0.65)" />
+                                <circle cx="32" cy="68" r="19" fill="rgba(216, 180, 254, 0.65)" />
+                                <circle cx="68" cy="32" r="19" fill="rgba(216, 180, 254, 0.65)" />
+                                <circle cx="50" cy="50" r="12" fill="#a855f7" />
+                            </svg>
+
+                            <div class="scrapbook-img-frame">
+                                <img class="scrapbook-img" src="fan_stick_figure.png" alt="Memory 1">
+                            </div>
+                            <div class="scrapbook-info">
+                                <span class="memory-number">Memory 01 of 03</span>
+                                <p class="memory-caption">the way you laugh at your own jokes — i hope you never stop.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="carousel-card-item">
+                        <div class="scrapbook-card">
+                            <div class="card-tape"></div>
+                            <!-- SVG Corner Flower Top Left -->
+                            <svg class="flower-top-left" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="15" fill="#fcdcd3" />
+                                <circle cx="50" cy="25" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                                <circle cx="50" cy="75" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                                <circle cx="25" cy="50" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                                <circle cx="75" cy="50" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                                <circle cx="32" cy="32" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                                <circle cx="68" cy="68" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                                <circle cx="32" cy="68" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                                <circle cx="68" cy="32" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                                <circle cx="50" cy="50" r="12" fill="#e57c82" />
+                            </svg>
+
+                            <!-- SVG Corner Flower Bottom Right -->
+                            <svg class="flower-bottom-right" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="15" fill="#f3ebff" />
+                                <circle cx="50" cy="25" r="19" fill="rgba(216, 180, 254, 0.75)" />
+                                <circle cx="50" cy="75" r="19" fill="rgba(216, 180, 254, 0.75)" />
+                                <circle cx="25" cy="50" r="19" fill="rgba(216, 180, 254, 0.75)" />
+                                <circle cx="75" cy="50" r="19" fill="rgba(216, 180, 254, 0.75)" />
+                                <circle cx="32" cy="32" r="19" fill="rgba(216, 180, 254, 0.65)" />
+                                <circle cx="68" cy="68" r="19" fill="rgba(216, 180, 254, 0.65)" />
+                                <circle cx="32" cy="68" r="19" fill="rgba(216, 180, 254, 0.65)" />
+                                <circle cx="68" cy="32" r="19" fill="rgba(216, 180, 254, 0.65)" />
+                                <circle cx="50" cy="50" r="12" fill="#a855f7" />
+                            </svg>
+
+                            <div class="scrapbook-img-frame">
+                                <img class="scrapbook-img" src="bread_cats.png" alt="Memory 2">
+                            </div>
+                            <div class="scrapbook-info">
+                                <span class="memory-number">Memory 02 of 03</span>
+                                <p class="memory-caption">every dumb adventure with you turned out to be the best memory.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="carousel-card-item">
+                        <div class="scrapbook-card">
+                            <div class="card-tape"></div>
+                            <!-- SVG Corner Flower Top Left -->
+                            <svg class="flower-top-left" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="15" fill="#fcdcd3" />
+                                <circle cx="50" cy="25" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                                <circle cx="50" cy="75" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                                <circle cx="25" cy="50" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                                <circle cx="75" cy="50" r="19" fill="rgba(247, 204, 205, 0.75)" />
+                                <circle cx="32" cy="32" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                                <circle cx="68" cy="68" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                                <circle cx="32" cy="68" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                                <circle cx="68" cy="32" r="19" fill="rgba(247, 204, 205, 0.65)" />
+                                <circle cx="50" cy="50" r="12" fill="#e57c82" />
+                            </svg>
+
+                            <!-- SVG Corner Flower Bottom Right -->
+                            <svg class="flower-bottom-right" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="15" fill="#f3ebff" />
+                                <circle cx="50" cy="25" r="19" fill="rgba(216, 180, 254, 0.75)" />
+                                <circle cx="50" cy="75" r="19" fill="rgba(216, 180, 254, 0.75)" />
+                                <circle cx="25" cy="50" r="19" fill="rgba(216, 180, 254, 0.75)" />
+                                <circle cx="75" cy="50" r="19" fill="rgba(216, 180, 254, 0.75)" />
+                                <circle cx="32" cy="32" r="19" fill="rgba(216, 180, 254, 0.65)" />
+                                <circle cx="68" cy="68" r="19" fill="rgba(216, 180, 254, 0.65)" />
+                                <circle cx="32" cy="68" r="19" fill="rgba(216, 180, 254, 0.65)" />
+                                <circle cx="68" cy="32" r="19" fill="rgba(216, 180, 254, 0.65)" />
+                                <circle cx="50" cy="50" r="12" fill="#a855f7" />
+                            </svg>
+
+                            <div class="scrapbook-img-frame">
+                                <img class="scrapbook-img" src="chasing_cat.png" alt="Memory 3">
+                            </div>
+                            <div class="scrapbook-info">
+                                <span class="memory-number">Memory 03 of 03</span>
+                                <p class="memory-caption">thank you for being my first friend, and the loudest one.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Dots indicators -->
+        <div class="carousel-dots" id="carousel-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+        </div>
+
+        <!-- OPEN THE CARDS button -->
+        <button class="return-greeting-btn" id="return-greeting-btn">
+            OPEN THE CARDS →
+        </button>
+    </div>
+
+    <!-- STAGE 4: RULED NOTEBOOK LETTER FINAL STAGE -->
+    <div id="stage-letter">
+        
+        <div class="letter-card">
+            <!-- Corner watercolor vector SVG flowers (matching user screenshot layout/colors) -->
+            <!-- Pink flower top left -->
+            <svg class="flower-top-left" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="14" fill="#fae8eb" />
+                <circle cx="50" cy="28" r="17" fill="#ffb7b2" />
+                <circle cx="50" cy="72" r="17" fill="#ffb7b2" />
+                <circle cx="28" cy="50" r="17" fill="#ffb7b2" />
+                <circle cx="72" cy="50" r="17" fill="#ffb7b2" />
+                <circle cx="34" cy="34" r="17" fill="#ffb7b2" />
+                <circle cx="66" cy="66" r="17" fill="#ffb7b2" />
+                <circle cx="34" cy="66" r="17" fill="#ffb7b2" />
+                <circle cx="66" cy="34" r="17" fill="#ffb7b2" />
+                <circle cx="50" cy="50" r="10" fill="#ffd166" />
+            </svg>
+
+            <!-- Peach flower top right -->
+            <svg class="flower-top-right" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="14" fill="#faf0e6" />
+                <circle cx="50" cy="28" r="17" fill="#fec5bb" />
+                <circle cx="50" cy="72" r="17" fill="#fec5bb" />
+                <circle cx="28" cy="50" r="17" fill="#fec5bb" />
+                <circle cx="72" cy="50" r="17" fill="#fec5bb" />
+                <circle cx="34" cy="34" r="17" fill="#fec5bb" />
+                <circle cx="66" cy="66" r="17" fill="#fec5bb" />
+                <circle cx="34" cy="66" r="17" fill="#fec5bb" />
+                <circle cx="66" cy="34" r="17" fill="#fec5bb" />
+                <circle cx="50" cy="50" r="10" fill="#ffd166" />
+            </svg>
+
+            <!-- Purple flower bottom right -->
+            <svg class="flower-bottom-right" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <g fill="#e8dbfc">
+                    <ellipse cx="50" cy="50" rx="6" ry="32" transform="rotate(0 50 50)" />
+                    <ellipse cx="50" cy="50" rx="6" ry="32" transform="rotate(30 50 50)" />
+                    <ellipse cx="50" cy="50" rx="6" ry="32" transform="rotate(60 50 50)" />
+                    <ellipse cx="50" cy="50" rx="6" ry="32" transform="rotate(90 50 50)" />
+                    <ellipse cx="50" cy="50" rx="6" ry="32" transform="rotate(120 50 50)" />
+                    <ellipse cx="50" cy="50" rx="6" ry="32" transform="rotate(150 50 50)" />
+                </g>
+                <circle cx="50" cy="50" r="12" fill="#ffd166" />
+            </svg>
+
+            <!-- Center overlapping avatar with gradient double ring (using me.png) -->
+            <div class="letter-avatar-container">
+                <div class="letter-avatar-border">
+                    <div class="letter-avatar-inner">
+                        <img src="me.png" alt="Headphones Character">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Header sub-badge -->
+            <span class="letter-tag-header">✦ A letter, just for you ✦</span>
+
+            <!-- Dear Bestie heading -->
+            <h3 class="letter-dear">Dear bestie,</h3>
+
+            <!-- Ruled Notebook Paragraphs -->
+            <p class="letter-body-p">
+                I'm not great at this — saying soft stuff to your face — so I made you a tiny page instead. a song, our pictures, and a few things I actually mean.
+            </p>
+            <p class="letter-body-p">
+                thank you for being the loudest, most chaotic, most reliable person in my corner. for the late-night plans, the random calls, and every time you pretended not to notice I was a mess.
+            </p>
+            <p class="letter-body-p">
+                I hope today feels like yours. I hope someone gets the order right, the wifi doesn't drop, and you laugh at least once for no reason. and I hope you know — even when I don't say it — I'm so glad you're my best friend.
+            </p>
+
+            <!-- Signoff dotted line with heart -->
+            <div class="letter-end-divider">
+                <span class="heart-icon">💗</span>
+                <div class="divider-line"></div>
+            </div>
+
+            <p class="letter-signature">with love (and zero regrets),</p>
+            <span class="letter-tag-footer">— YOUR BEST FRIEND</span>
+
+        </div>
+
+        <!-- Outside caption -->
+        <span class="letter-outside-footer">WITH LOVE · YOUR BEST FRIEND</span>
+
+        <!-- Start Again button -->
+        <button class="start-again-btn" id="start-again-btn">
+            ↺ START AGAIN
+        </button>
+
+    </div>
+
+    <!-- Scripting for stage routing, particles, lofi stream player, and album carousel -->
+    <script>
+        // --- 1. Floating Particle Canvas Background ---
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: -1000, y: -1000, active: false };
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor(x, y, isHeart = false) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 8 + 4;
+                this.speedX = Math.random() * 0.8 - 0.4;
+                this.speedY = -(Math.random() * 0.7 + 0.4);
+                this.color = `hsla(${Math.random() * 45 + 335}, 90%, 78%, ${Math.random() * 0.4 + 0.3})`;
+                this.isHeart = isHeart || Math.random() > 0.65;
+                this.angle = Math.random() * Math.PI * 2;
+                this.spin = Math.random() * 0.02 - 0.01;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.angle += this.spin;
+
+                if (mouse.active) {
+                    const dx = this.x - mouse.x;
+                    const dy = this.y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 130) {
+                        const force = (130 - dist) / 130;
+                        const angle = Math.atan2(dy, dx);
+                        this.x += Math.cos(angle) * force * 3.5;
+                        this.y += Math.sin(angle) * force * 3.5;
+                    }
+                }
+
+                if (this.y < -15) {
+                    this.y = canvas.height + 15;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+                ctx.fillStyle = this.color;
+
+                if (this.isHeart) {
+                    ctx.beginPath();
+                    ctx.moveTo(0, 0);
+                    ctx.bezierCurveTo(-this.size/2, -this.size/2, -this.size, this.size/3, 0, this.size);
+                    ctx.bezierCurveTo(this.size, this.size/3, this.size/2, -this.size/2, 0, 0);
+                    ctx.fill();
+                } else {
+                    ctx.beginPath();
+                    for (let i = 0; i < 5; i++) {
+                        ctx.lineTo(Math.cos((18 + i * 72) * Math.PI / 180) * this.size,
+                                   Math.sin((18 + i * 72) * Math.PI / 180) * this.size);
+                        ctx.lineTo(Math.cos((54 + i * 72) * Math.PI / 180) * (this.size / 2),
+                                   Math.sin((54 + i * 72) * Math.PI / 180) * (this.size / 2));
+                    }
+                    ctx.closePath();
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
+        }
+
+        function initBackgroundParticles() {
+            const count = Math.min(Math.floor(canvas.width / 22), 65);
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle(
+                    Math.random() * canvas.width,
+                    Math.random() * canvas.height
+                ));
+            }
+        }
+        initBackgroundParticles();
+
+        function triggerBurst(centerX, centerY) {
+            const burstCount = 35;
+            for (let i = 0; i < burstCount; i++) {
+                const p = new Particle(centerX, centerY, true);
+                p.speedX = (Math.random() - 0.5) * 9;
+                p.speedY = (Math.random() - 0.5) * 9 - 2;
+                p.size = Math.random() * 9 + 6;
+                particles.push(p);
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((p, idx) => {
+                p.update();
+                p.draw();
+                if (particles.length > 80 && p.y < 0) {
+                    particles.splice(idx, 1);
+                }
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+            mouse.active = true;
+        });
+
+        window.addEventListener('mouseleave', () => {
+            mouse.active = false;
+        });
+
+
+        // --- 2. Live Audio Stream Controls for Aashiyan MP3 ---
+        const bgMusic = document.getElementById('bg-music');
+        const playPauseBtn = document.getElementById('player-play-btn');
+        const playIcon = document.getElementById('play-icon');
+        const currentTimeLabel = document.getElementById('time-current');
+        const durationTimeLabel = document.getElementById('time-duration');
+        const progressBar = document.getElementById('music-progress');
+        const timelineClick = document.getElementById('timeline-click');
+
+        function formatTime(sec) {
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return `${m}:${s.toString().padStart(2, '0')}`;
+        }
+
+        bgMusic.addEventListener('loadedmetadata', () => {
+            durationTimeLabel.textContent = formatTime(bgMusic.duration);
+        });
+
+        bgMusic.addEventListener('timeupdate', () => {
+            const current = bgMusic.currentTime;
+            const duration = bgMusic.duration || 59;
+            currentTimeLabel.textContent = formatTime(current);
+            
+            const pct = (current / duration) * 100;
+            progressBar.style.width = `${pct}%`;
+        });
+
+        bgMusic.addEventListener('ended', () => {
+            bgMusic.currentTime = 0;
+            bgMusic.play();
+        });
+
+        function playAudio() {
+            bgMusic.play().then(() => {
+                playPauseBtn.classList.add('playing');
+                playIcon.innerHTML = `<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>`; // Pause SVG
+            }).catch(err => {
+                console.log("Autoplay blocked, waiting for user click.");
+            });
+        }
+
+        function pauseAudio() {
+            bgMusic.pause();
+            playPauseBtn.classList.remove('playing');
+            playIcon.innerHTML = `<path d="M8 5v14l11-7z"/>`; // Play SVG
+        }
+
+        playPauseBtn.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                playAudio();
+            } else {
+                pauseAudio();
+            }
+        });
+
+        timelineClick.addEventListener('click', (e) => {
+            const rect = timelineClick.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const width = rect.width;
+            const ratio = clickX / width;
+            const targetTime = ratio * (bgMusic.duration || 59);
+            bgMusic.currentTime = targetTime;
+        });
+
+
+        // --- 3. Stage Transitions ---
+        const envelopeTrigger = document.getElementById('envelope-trigger');
+        const stageEnvelope = document.getElementById('stage-envelope');
+        const stageNotes = document.getElementById('stage-notes');
+        const stageThanks = document.getElementById('stage-thanks');
+        const stageCard = document.getElementById('stage-card');
+        const stageAlbum = document.getElementById('stage-album');
+        const stageLetter = document.getElementById('stage-letter');
+
+        // Stage 1 (Envelope) -> Stage 2 (Greeting Card & Music Player)
+        envelopeTrigger.addEventListener('click', (e) => {
+            if (envelopeTrigger.classList.contains('open')) return;
+            
+            const rect = envelopeTrigger.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            triggerBurst(centerX, centerY);
+            envelopeTrigger.classList.add('open');
+            
+            setTimeout(() => {
+                stageEnvelope.style.opacity = '0';
+                stageEnvelope.style.transform = 'scale(0.95) translateY(-20px)';
+                stageEnvelope.style.filter = 'blur(8px)';
+                
+                setTimeout(() => {
+                    stageEnvelope.style.display = 'none';
+                    
+                    stageCard.style.display = 'block';
+                    stageCard.offsetHeight;
+                    
+                    stageCard.style.opacity = '1';
+                    stageCard.style.transform = 'scale(1) translateY(0)';
+                    stageCard.style.filter = 'blur(0)';
+                    
+                    setTimeout(() => {
+                        playAudio();
+                    }, 500);
+                }, 800);
+            }, 1200);
+        });
+
+        // Stage 2 (Greeting Card) -> Stage 3 (Album Carousel)
+        const openAlbumBtn = document.getElementById('open-album-btn');
+        openAlbumBtn.addEventListener('click', () => {
+            stageCard.style.opacity = '0';
+            stageCard.style.transform = 'scale(0.95) translateY(-20px)';
+            stageCard.style.filter = 'blur(8px)';
+            
+            setTimeout(() => {
+                stageCard.style.display = 'none';
+                stageAlbum.style.display = 'block';
+                stageAlbum.offsetHeight;
+                
+                stageAlbum.style.opacity = '1';
+                stageAlbum.style.transform = 'scale(1) translateY(0)';
+                stageAlbum.style.filter = 'blur(0)';
+            }, 800);
+        });
+
+        // Stage 3 (Album Carousel) -> Stage 1.5 (Notes Deck)
+        const returnGreetingBtn = document.getElementById('return-greeting-btn');
+        returnGreetingBtn.addEventListener('click', () => {
+            const rect = returnGreetingBtn.getBoundingClientRect();
+            triggerBurst(rect.left + rect.width/2, rect.top + rect.height/2);
+
+            stageAlbum.style.opacity = '0';
+            stageAlbum.style.transform = 'scale(0.95) translateY(20px)';
+            stageAlbum.style.filter = 'blur(8px)';
+            
+            setTimeout(() => {
+                stageAlbum.style.display = 'none';
+                stageNotes.style.display = 'block';
+                stageNotes.offsetHeight;
+                
+                stageNotes.style.opacity = '1';
+                stageNotes.style.transform = 'scale(1) translateY(0)';
+                stageNotes.style.filter = 'blur(0)';
+                
+                setTimeout(() => {
+                    stageNotes.classList.add('show-cards');
+                }, 100);
+            }, 800);
+        });
+
+        // Stage 1.5 (Notes Deck) -> Stage 1.7 (Thank You Card)
+        const notesProceedBtn = document.getElementById('notes-proceed-btn');
+        notesProceedBtn.addEventListener('click', () => {
+            stageNotes.style.opacity = '0';
+            stageNotes.style.transform = 'scale(0.95) translateY(-20px)';
+            stageNotes.style.filter = 'blur(8px)';
+            
+            setTimeout(() => {
+                stageNotes.style.display = 'none';
+                
+                stageThanks.style.display = 'block';
+                stageThanks.offsetHeight;
+                
+                stageThanks.style.opacity = '1';
+                stageThanks.style.transform = 'scale(1) translateY(0)';
+                stageThanks.style.filter = 'blur(0)';
+            }, 800);
+        });
+
+        // Stage 1.7 (Thank You) -> Stage 4 (Letter Card)
+        const thanksProceedBtn = document.getElementById('thanks-proceed-btn');
+        thanksProceedBtn.addEventListener('click', () => {
+            const rect = thanksProceedBtn.getBoundingClientRect();
+            triggerBurst(rect.left + rect.width/2, rect.top + rect.height/2);
+
+            stageThanks.style.opacity = '0';
+            stageThanks.style.transform = 'scale(0.95) translateY(-20px)';
+            stageThanks.style.filter = 'blur(8px)';
+            
+            setTimeout(() => {
+                stageThanks.style.display = 'none';
+                
+                stageLetter.style.display = 'flex';
+                stageLetter.offsetHeight;
+                
+                stageLetter.style.opacity = '1';
+                stageLetter.style.transform = 'scale(1) translateY(0)';
+                stageLetter.style.filter = 'blur(0)';
+            }, 800);
+        });
+
+        // Stage 4 (Letter Card) Reset -> Stage 1 (Envelope Landing)
+        const startAgainBtn = document.getElementById('start-again-btn');
+        startAgainBtn.addEventListener('click', () => {
+            const rect = startAgainBtn.getBoundingClientRect();
+            triggerBurst(rect.left + rect.width/2, rect.top + rect.height/2);
+
+            // Fade out final letter stage
+            stageLetter.style.opacity = '0';
+            stageLetter.style.transform = 'scale(0.95) translateY(20px)';
+            stageLetter.style.filter = 'blur(8px)';
+            
+            setTimeout(() => {
+                stageLetter.style.display = 'none';
+                
+                // --- Reset all state managers ---
+                // 1. Close Envelope
+                envelopeTrigger.classList.remove('open');
+                
+                // 2. Unflip Note cards
+                flipCards.forEach(c => c.classList.remove('flipped'));
+                flippedCardsSet.clear();
+                notesProceedBtn.classList.remove('show');
+                stageNotes.classList.remove('show-cards');
+                
+                // 3. Reset Music Stream
+                pauseAudio();
+                bgMusic.currentTime = 0;
+                
+                // 4. Reset Album carousel slides
+                currentSlide = 0;
+                updateCarousel();
+                
+                // 5. Restore Envelope landing
+                stageEnvelope.style.display = 'flex';
+                stageEnvelope.offsetHeight;
+                
+                stageEnvelope.style.opacity = '1';
+                stageEnvelope.style.transform = 'scale(1) translateY(0)';
+                stageEnvelope.style.filter = 'blur(0)';
+            }, 800);
+        });
+
+
+        // --- 4. Interactive Note Cards Flip Logic ---
+        const flipCards = document.querySelectorAll('.flip-card');
+        const flippedCardsSet = new Set();
+
+        flipCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (card.classList.contains('flipped')) return;
+
+                const rect = card.getBoundingClientRect();
+                const clickX = rect.left + rect.width / 2;
+                const clickY = rect.top + rect.height / 2;
+                triggerBurst(clickX, clickY);
+
+                card.classList.add('flipped');
+                
+                const noteId = card.getAttribute('data-note-id');
+                flippedCardsSet.add(noteId);
+
+                if (flippedCardsSet.size === 3) {
+                    setTimeout(() => {
+                        notesProceedBtn.classList.add('show');
+                    }, 700);
+                }
+            });
+        });
+
+
+        // --- 5. Album Sliding Carousel Logic ---
+        const carouselTrack = document.getElementById('carousel-track');
+        const prevSlideBtn = document.getElementById('prev-slide-btn');
+        const nextSlideBtn = document.getElementById('next-slide-btn');
+        const dots = document.querySelectorAll('.carousel-dots .dot');
+        let currentSlide = 0;
+        const totalSlides = 3;
+
+        function updateCarousel() {
+            const offset = -currentSlide * 33.3333;
+            carouselTrack.style.transform = `translateX(${offset}%)`;
+            
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        prevSlideBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        });
+
+        nextSlideBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        });
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                const targetIdx = parseInt(e.target.getAttribute('data-index'));
+                currentSlide = targetIdx;
+                updateCarousel();
+            });
+        });
+
+    </script>
+</body>
+</html>

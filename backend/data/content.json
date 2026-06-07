@@ -1,0 +1,57 @@
+{
+  "track": {
+    "name": "Ashiyan",
+    "tag": "A Track For You",
+    "src": "Aashiyan%20Barfi%20128%20Kbps.mp3",
+    "caption": "press play – this one always reminds me of you and our long drives."
+  },
+  "notes": [
+    {
+      "id": 1,
+      "color": "pink",
+      "header": "You Had My Back",
+      "quote": "you've covered for me, fought for me, and shown up for me more times than i can count. i noticed every single one."
+    },
+    {
+      "id": 2,
+      "color": "orange",
+      "header": "You Make Me Laugh",
+      "quote": "no one roasts me like you. no one cheers me up like you either. i'd pick our brand of nonsense any day."
+    },
+    {
+      "id": 3,
+      "color": "purple",
+      "header": "You Are My Safe Place",
+      "quote": "through every high and low, you've been my constant anchor. thank you for simply being you—my absolute favorite human."
+    }
+  ],
+  "memories": [
+    {
+      "index": "01",
+      "img": "fan.png",
+      "caption": "the way you laugh at your own jokes — i hope you never stop."
+    },
+    {
+      "index": "02",
+      "img": "bread_cats.png",
+      "caption": "every dumb adventure with you turned out to be the best memory."
+    },
+    {
+      "index": "03",
+      "img": "idiots.png",
+      "caption": "thank you for being my first friend, and the loudest one."
+    }
+  ],
+  "letter": {
+    "tagHeader": "✦ A letter, just for you ✦",
+    "dear": "Dear bestie,",
+    "paragraphs": [
+      "I'm not great at this — saying soft stuff to your face — so I made you a tiny page instead. a song, our pictures, and a few things I actually mean.",
+      "thank you for being the loudest, most chaotic, most reliable person in my corner. for the late-night plans, the random calls, and every time you pretended not to notice I was a mess.",
+      "I hope today feels like yours. I hope someone gets the order right, the wifi doesn't drop, and you laugh at least once for no reason. and I hope you know — even when I don't say it — I'm so glad you're my best friend."
+    ],
+    "signature": "with love (and zero regrets),",
+    "tagFooter": "— YOUR DUMB FRIEND",
+    "outsideFooter": "WITH LOVE · YOUR DUMB FRIEND"
+  }
+}
