@@ -7,6 +7,7 @@
     "install:all": "npm install --prefix backend && npm install --prefix frontend",
     "dev:backend": "npm run dev --prefix backend",
     "dev:frontend": "npm run dev --prefix frontend",
-    "dev": "powershell -Command \"Start-Process cmd -ArgumentList '/c npm run dev --prefix backend' -NoNewWindow; npm run dev --prefix frontend\""
+    "dev": "powershell -Command \"Start-Process cmd -ArgumentList '/c npm run dev --prefix backend' -NoNewWindow; npm run dev --prefix frontend\"",
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
   }
 }
