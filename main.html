@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Best Friend's Day! 🌸</title>
+    <title>Happy National Best Friend Day! 🌸</title>
     <!-- Premium Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Fredoka:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Fredoka:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
     <style>
         :root {
             --bg-gradient: linear-gradient(135deg, #e4effb 0%, #edf7f1 50%, #faf3db 100%);
@@ -365,7 +368,8 @@
             gap: 12px;
             justify-content: center;
             width: 100%;
-            margin-bottom: -15px; /* overlap into envelope cup */
+            margin-bottom: -15px;
+            /* overlap into envelope cup */
             position: relative;
             z-index: 2;
         }
@@ -401,7 +405,8 @@
             transform: rotateY(180deg);
         }
 
-        .flip-card-front, .flip-card-back {
+        .flip-card-front,
+        .flip-card-back {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -430,9 +435,12 @@
         .card-pink {
             background: rgba(255, 241, 242, 0.95);
         }
-        .card-pink .pick-me-text, .card-pink .back-header {
+
+        .card-pink .pick-me-text,
+        .card-pink .back-header {
             color: #f43f5e;
         }
+
         .card-pink .mini-flower-icon {
             fill: #f43f5e;
         }
@@ -440,9 +448,12 @@
         .card-orange {
             background: rgba(255, 247, 237, 0.95);
         }
-        .card-orange .pick-me-text, .card-orange .back-header {
+
+        .card-orange .pick-me-text,
+        .card-orange .back-header {
             color: #d97706;
         }
+
         .card-orange .mini-flower-icon {
             fill: #d97706;
         }
@@ -450,9 +461,12 @@
         .card-purple {
             background: rgba(245, 243, 255, 0.95);
         }
-        .card-purple .pick-me-text, .card-purple .back-header {
+
+        .card-purple .pick-me-text,
+        .card-purple .back-header {
             color: #7c3aed;
         }
+
         .card-purple .mini-flower-icon {
             fill: #7c3aed;
         }
@@ -543,9 +557,23 @@
         }
 
         /* Entry Cascadings */
-        #stage-notes.show-cards .flip-card:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
-        #stage-notes.show-cards .flip-card:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
-        #stage-notes.show-cards .flip-card:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+        #stage-notes.show-cards .flip-card:nth-child(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.1s;
+        }
+
+        #stage-notes.show-cards .flip-card:nth-child(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.25s;
+        }
+
+        #stage-notes.show-cards .flip-card:nth-child(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
 
         /* Stage 1.5 Proceed Button */
         #notes-proceed-btn {
@@ -564,8 +592,13 @@
         }
 
         @keyframes bounce-attention {
-            0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(-4px) scale(1.03); }
+            0% {
+                transform: translateY(0) scale(1);
+            }
+
+            100% {
+                transform: translateY(-4px) scale(1.03);
+            }
         }
 
 
@@ -673,12 +706,14 @@
         }
 
         /* Watercolor SVG Flowers at Corners */
-        .flower-top-left, .flower-top-right, .flower-bottom-right {
+        .flower-top-left,
+        .flower-top-right,
+        .flower-bottom-right {
             position: absolute;
             width: 60px;
             height: 60px;
             pointer-events: none;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.02));
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.02));
         }
 
         .flower-top-left {
@@ -811,7 +846,7 @@
             border: 1px solid rgba(226, 232, 240, 0.8);
             border-radius: 20px;
             padding: 15px 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
             display: flex;
             align-items: center;
             gap: 15px;
@@ -829,7 +864,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
         }
 
         .player-sticker {
@@ -945,7 +980,8 @@
         }
 
         /* SEE OUR ALBUM BUTTON */
-        .album-trigger-btn, .return-greeting-btn {
+        .album-trigger-btn,
+        .return-greeting-btn {
             background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
             border: none;
             border-radius: 50px;
@@ -965,7 +1001,8 @@
             z-index: 10;
         }
 
-        .album-trigger-btn:hover, .return-greeting-btn:hover {
+        .album-trigger-btn:hover,
+        .return-greeting-btn:hover {
             transform: translateY(-3px) scale(1.03);
             box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
         }
@@ -1034,7 +1071,8 @@
 
         .carousel-track {
             display: flex;
-            width: 300%; /* 3 cards */
+            width: 300%;
+            /* 3 cards */
             transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
@@ -1094,6 +1132,14 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .scrapbook-img.rotate-90-full {
+            width: 100%;
+            height: 177.86%;
+            transform: rotate(-90deg);
+            object-fit: cover;
+            flex-shrink: 0;
         }
 
         .scrapbook-info {
@@ -1200,14 +1246,16 @@
 
         .letter-card {
             position: relative;
-            background-color: #fefcf6; /* Cream notebook color */
-            background-image: 
+            background-color: #fefcf6;
+            /* Cream notebook color */
+            background-image:
                 linear-gradient(transparent 27px, rgba(147, 197, 253, 0.3) 27px);
             background-size: 100% 28px;
             background-position: 0 78px;
             border: 1px solid rgba(226, 232, 240, 0.9);
             border-radius: 28px;
-            padding: 78px 25px 35px 45px; /* left indent padding for red margin line */
+            padding: 78px 25px 35px 45px;
+            /* left indent padding for red margin line */
             box-shadow: var(--shadow-card);
             text-align: left;
             display: flex;
@@ -1286,7 +1334,8 @@
             width: 100%;
             display: block;
             margin-top: 0;
-            margin-bottom: 28px; /* exactly 1 line-height */
+            margin-bottom: 28px;
+            /* exactly 1 line-height */
             line-height: 28px;
             height: 28px;
         }
@@ -1295,7 +1344,8 @@
             font-family: 'Caveat', cursive;
             font-size: 2.1rem;
             color: #1e293b;
-            margin: 0 0 28px 0; /* exactly 1 line-height */
+            margin: 0 0 28px 0;
+            /* exactly 1 line-height */
             line-height: 28px;
             height: 28px;
             font-weight: 700;
@@ -1308,8 +1358,16 @@
             font-size: 0.92rem;
             line-height: 28px;
             color: #334155;
-            margin: 0 0 28px 0; /* exactly 1 line-height gap between paragraphs */
+            margin: 0 0 28px 0;
+            /* exactly 1 line-height gap between paragraphs */
             padding-left: 5px;
+        }
+
+        .letter-body-p.highlight-p {
+            font-family: 'Caveat', cursive;
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: #db2777;
         }
 
         /* Separator dotted with heart icon */
@@ -1334,7 +1392,8 @@
         .letter-end-divider .divider-line {
             flex-grow: 1;
             height: 1px;
-            border-bottom: 2px dotted #c084fc; /* purple dots */
+            border-bottom: 2px dotted #c084fc;
+            /* purple dots */
             opacity: 0.65;
         }
 
@@ -1405,21 +1464,55 @@
 
         /* Keyframes & glow updates */
         @keyframes avatar-glow-pulse {
-            0% { box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
-            100% { box-shadow: 0 0 25px rgba(56, 189, 248, 0.55); }
+            0% {
+                box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+            }
+
+            100% {
+                box-shadow: 0 0 25px rgba(56, 189, 248, 0.55);
+            }
         }
 
         /* Responsive UI adaptations */
         @media (max-width: 420px) {
-            .prev-arrow { left: -10px; }
-            .next-arrow { right: -10px; }
-            .cards-row { gap: 6px; }
-            .flip-card { width: 100px; height: 180px; }
-            .back-header { font-size: 0.52rem; margin-bottom: 6px; }
-            .back-quote { font-size: 0.95rem; }
-            .card-rose-svg { width: 34px; height: 34px; }
-            .letter-card { padding: 50px 15px 30px 32px; }
-            .letter-card::before { left: 24px; }
+            .prev-arrow {
+                left: -10px;
+            }
+
+            .next-arrow {
+                right: -10px;
+            }
+
+            .cards-row {
+                gap: 6px;
+            }
+
+            .flip-card {
+                width: 100px;
+                height: 180px;
+            }
+
+            .back-header {
+                font-size: 0.52rem;
+                margin-bottom: 6px;
+            }
+
+            .back-quote {
+                font-size: 0.95rem;
+            }
+
+            .card-rose-svg {
+                width: 34px;
+                height: 34px;
+            }
+
+            .letter-card {
+                padding: 50px 15px 30px 32px;
+            }
+
+            .letter-card::before {
+                left: 24px;
+            }
         }
 
         @media (max-width: 380px) {
@@ -1427,46 +1520,84 @@
                 width: 280px;
                 height: 180px;
             }
+
             .envelope-front {
                 border-width: 0 140px 95px 140px;
             }
+
             .envelope-front::before {
                 border-width: 90px 0 90px 140px;
                 top: -90px;
                 left: -140px;
             }
+
             .envelope-front::after {
                 border-width: 90px 140px 90px 0;
                 top: -90px;
                 right: -140px;
             }
+
             .envelope-top {
                 border-width: 90px 140px 0 140px;
             }
+
             .envelope-letter-stub {
                 width: 250px;
                 height: 140px;
             }
-            .main-card, .scrapbook-card, .thanks-card, .letter-card {
+
+            .main-card,
+            .scrapbook-card,
+            .thanks-card,
+            .letter-card {
                 padding: 40px 15px 25px 15px;
             }
-            .letter-card { padding-left: 28px; }
-            .letter-card::before { left: 20px; }
-            h1.envelope-title, h2.card-title {
+
+            .letter-card {
+                padding-left: 28px;
+            }
+
+            .letter-card::before {
+                left: 20px;
+            }
+
+            h1.envelope-title,
+            h2.card-title {
                 font-size: 1.8rem;
             }
+
             .avatar-container {
                 right: 20px;
             }
-            .flip-card { width: 92px; height: 170px; }
-            .back-quote { font-size: 0.85rem; }
-            .thanks-title { font-size: 1.7rem; }
-            .letter-dear { font-size: 1.6rem; }
-            .letter-body-p { font-size: 0.85rem; }
-            .letter-signature { font-size: 1.5rem; }
+
+            .flip-card {
+                width: 92px;
+                height: 170px;
+            }
+
+            .back-quote {
+                font-size: 0.85rem;
+            }
+
+            .thanks-title {
+                font-size: 1.7rem;
+            }
+
+            .letter-dear {
+                font-size: 1.6rem;
+            }
+
+            .letter-body-p {
+                font-size: 0.85rem;
+            }
+
+            .letter-signature {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Local MP3 Audio Element -->
@@ -1485,14 +1616,14 @@
         <!-- Typography Headers -->
         <h1 class="envelope-title">a little something for you</h1>
         <div class="envelope-subtitle">
-            happy best friend's day <span class="sparkle-char">✦</span>
+            happy national bestfriend day <span class="sparkle-char">✦</span>
         </div>
 
         <!-- Bouncing Cat Sticker -->
         <div class="sticker-wrapper">
-            <img class="dancing-cat" 
-                 src="Baby%20Cat%20Dancing%20Png%20GIF%20-%20Baby%20cat%20dancing%20png%20-%20Discover%20%26%20Share%20GIFs.gif" 
-                 alt="Dancing Baby Cat">
+            <img class="dancing-cat"
+                src="Baby%20Cat%20Dancing%20Png%20GIF%20-%20Baby%20cat%20dancing%20png%20-%20Discover%20%26%20Share%20GIFs.gif"
+                alt="Dancing Baby Cat">
         </div>
 
         <!-- CSS 3D Envelope -->
@@ -1500,10 +1631,10 @@
             <div class="envelope">
                 <!-- Outer folding lid -->
                 <div class="envelope-top"></div>
-                
+
                 <!-- Inner pocket backdrop -->
                 <div class="envelope-back"></div>
-                
+
                 <!-- Fake sliding letter card -->
                 <div class="envelope-letter-stub">
                     Opening card... ✨
@@ -1536,7 +1667,7 @@
 
         <!-- 3D Flip Card Deck -->
         <div class="cards-row">
-            
+
             <!-- Card 1 (Pink) -->
             <div class="flip-card card-pink" data-note-id="1">
                 <div class="flip-card-inner">
@@ -1565,7 +1696,8 @@
                         </svg>
                         <span class="back-header">✿ You Had My Back ✿</span>
                         <p class="back-quote">
-                            you've covered for me, fought for me, and shown up for me more times than i can count. i noticed every single one.
+                            you've covered for me, fought for me, and shown up for me more times than i can count. i
+                            noticed every single one.
                         </p>
                     </div>
                 </div>
@@ -1599,7 +1731,8 @@
                         </svg>
                         <span class="back-header">✿ You Make Me Laugh ✿</span>
                         <p class="back-quote">
-                            no one roasts me like you. no one cheers me up like you either. i'd pick our brand of nonsense any day.
+                            no one roasts me like you. no one cheers me up like you either. i'd pick our brand of
+                            nonsense any day.
                         </p>
                     </div>
                 </div>
@@ -1633,7 +1766,8 @@
                         </svg>
                         <span class="back-header">✿ You Are My Safe Place ✿</span>
                         <p class="back-quote">
-                            through every high and low, you've been my constant anchor. thank you for simply being you—my absolute favorite human.
+                            through every high and low, you've been my constant anchor. thank you for simply being
+                            you—my absolute favorite human.
                         </p>
                     </div>
                 </div>
@@ -1699,7 +1833,7 @@
             <!-- Center overlapping avatar -->
             <div class="thanks-avatar-container">
                 <div class="avatar-glow"></div>
-                <img class="avatar-img" src="WEBP-36-1-500x500.webp" alt="Bestie Character">
+                <img class="avatar-img" src="public/all3.jpeg" alt="Bestie Character">
             </div>
 
             <!-- Title -->
@@ -1707,7 +1841,8 @@
 
             <!-- Paragraph message -->
             <p class="thanks-message">
-                for the laughs, the comebacks, the bad jokes, and the rare-but-perfect serious talks. for being the constant. happy best friend's day — you deserve every bit of this and more.
+                for the laughs, the comebacks, the bad jokes, and the rare-but-perfect serious talks. for being the
+                constant. happy national bestfriend day — you deserve every bit of this and more.
             </p>
 
             <!-- Proceed button -->
@@ -1720,7 +1855,7 @@
     <!-- STAGE 2: CARD PAGE STAGE (Main Greeting Card) -->
     <div id="stage-card">
         <div class="main-card">
-            
+
             <!-- Watercolor Vector SVG Flowers at Card Corners -->
             <svg class="flower-top-left" viewBox="0 0 100 100">
                 <circle cx="50" cy="50" r="15" fill="#fcdcd3" />
@@ -1760,7 +1895,7 @@
             </div>
 
             <!-- Headings -->
-            <h2 class="card-title">Happy Best Friend's Day</h2>
+            <h2 class="card-title">Happy National Best Friend Day</h2>
             <div class="card-subtitle">for my bestie ✦</div>
 
             <!-- Dots divider -->
@@ -1772,23 +1907,24 @@
 
             <!-- Letter text message -->
             <p class="card-message">
-                Today is yours. A little corner of the internet — built just to say thanks for every inside joke we still laugh about, every secret we kept, and every time you had my back. Stay a while, bestie.
+                Today is yours. A little corner of the internet — built just to say thanks for every inside joke we
+                still laugh about, every secret we kept, and every time you had my back. Stay a while, bestie.
             </p>
 
             <!-- MUSIC PLAYER -->
             <div class="music-player">
                 <!-- Left sticker frame -->
                 <div class="player-sticker-frame">
-                    <img class="player-sticker" 
-                         src="Happy%20In%20Love%20Sticker%20by%20KIKI%20-%20Find%20%26%20Share%20on%20GIPHY.gif" 
-                         alt="Music note avatar">
+                    <img class="player-sticker"
+                        src="Happy%20In%20Love%20Sticker%20by%20KIKI%20-%20Find%20%26%20Share%20on%20GIPHY.gif"
+                        alt="Music note avatar">
                 </div>
 
                 <!-- Track info and Progress -->
                 <div class="player-info">
                     <span class="track-name">Ashiyan</span>
                     <span class="track-tag">A Track For You</span>
-                    
+
                     <div class="progress-wrapper">
                         <span class="progress-time" id="time-current">0:00</span>
                         <div class="progress-container" id="timeline-click">
@@ -1804,7 +1940,7 @@
                 <button class="play-btn" id="player-play-btn">
                     <!-- Play Arrow SVG -->
                     <svg id="play-icon" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
+                        <path d="M8 5v14l11-7z" />
                     </svg>
                 </button>
             </div>
@@ -1841,7 +1977,7 @@
             <!-- Card Viewport -->
             <div class="carousel-viewport">
                 <div class="carousel-track" id="carousel-track">
-                    
+
                     <!-- Card 1 -->
                     <div class="carousel-card-item">
                         <div class="scrapbook-card">
@@ -1875,11 +2011,12 @@
                             </svg>
 
                             <div class="scrapbook-img-frame">
-                                <img class="scrapbook-img" src="fan_stick_figure.png" alt="Memory 1">
+                                <img class="scrapbook-img rotate-90-full" src="public/all3.jpeg" alt="Memory 1">
                             </div>
                             <div class="scrapbook-info">
                                 <span class="memory-number">Memory 01 of 03</span>
-                                <p class="memory-caption">the way you laugh at your own jokes — i hope you never stop.</p>
+                                <p class="memory-caption">hanging out with you two in college made me realize i actually have friends. i am so grateful to have you both in my life! ❤️
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -1917,11 +2054,11 @@
                             </svg>
 
                             <div class="scrapbook-img-frame">
-                                <img class="scrapbook-img" src="bread_cats.png" alt="Memory 2">
+                                <img class="scrapbook-img" src="public/kajol.jpeg" alt="Memory 2">
                             </div>
                             <div class="scrapbook-info">
                                 <span class="memory-number">Memory 02 of 03</span>
-                                <p class="memory-caption">every dumb adventure with you turned out to be the best memory.</p>
+                                <p class="memory-caption">doing kalesh with you and still being friends with you and chilling out like nothing happened. ❤️</p>
                             </div>
                         </div>
                     </div>
@@ -1959,11 +2096,11 @@
                             </svg>
 
                             <div class="scrapbook-img-frame">
-                                <img class="scrapbook-img" src="chasing_cat.png" alt="Memory 3">
+                                <img class="scrapbook-img" src="public/vaish.jpeg" alt="Memory 3">
                             </div>
                             <div class="scrapbook-info">
                                 <span class="memory-number">Memory 03 of 03</span>
-                                <p class="memory-caption">thank you for being my first friend, and the loudest one.</p>
+                                <p class="memory-caption">you are the friend i can run and cry to for every little inconvenience. thank you for listening to all my nonsense and being there for me in the worst and the best. ❤️</p>
                             </div>
                         </div>
                     </div>
@@ -1987,7 +2124,7 @@
 
     <!-- STAGE 4: RULED NOTEBOOK LETTER FINAL STAGE -->
     <div id="stage-letter">
-        
+
         <div class="letter-card">
             <!-- Corner watercolor vector SVG flowers (matching user screenshot layout/colors) -->
             <!-- Pink flower top left -->
@@ -2044,17 +2181,17 @@
             <span class="letter-tag-header">✦ A letter, just for you ✦</span>
 
             <!-- Dear Bestie heading -->
-            <h3 class="letter-dear">Dear bestie,</h3>
+            <h3 class="letter-dear">Dear besties,</h3>
 
             <!-- Ruled Notebook Paragraphs -->
             <p class="letter-body-p">
-                I'm not great at this — saying soft stuff to your face — so I made you a tiny page instead. a song, our pictures, and a few things I actually mean.
+                I'm not great at saying soft stuff, so I built this little page instead. Hanging out with you two in college made me realize what actual friendship feels like, and I am so incredibly grateful to have you both in my life. ❤️
             </p>
             <p class="letter-body-p">
-                thank you for being the loudest, most chaotic, most reliable person in my corner. for the late-night plans, the random calls, and every time you pretended not to notice I was a mess.
+                Whether we are doing kalesh and chilling out the next minute like nothing happened, or I am running to you to cry about every little inconvenience, you've always been there. Thank you for listening to my constant nonsense, and for being in my corner through the worst and the best of times.
             </p>
-            <p class="letter-body-p">
-                I hope today feels like yours. I hope someone gets the order right, the wifi doesn't drop, and you laugh at least once for no reason. and I hope you know — even when I don't say it — I'm so glad you're my best friend.
+            <p class="letter-body-p highlight-p">
+                Even if we stop talking someday in the future, I just want you guys to know that you will always remain special to me. I will remember and cherish every single moment and all the time we have spent together in this college.
             </p>
 
             <!-- Signoff dotted line with heart -->
@@ -2064,12 +2201,12 @@
             </div>
 
             <p class="letter-signature">with love (and zero regrets),</p>
-            <span class="letter-tag-footer">— YOUR BEST FRIEND</span>
+            <span class="letter-tag-footer">— YOUR BHONDU FRIND</span>
 
         </div>
 
         <!-- Outside caption -->
-        <span class="letter-outside-footer">WITH LOVE · YOUR BEST FRIEND</span>
+        <span class="letter-outside-footer">WITH LOVE · YOUR BHONDU FRIND</span>
 
         <!-- Start Again button -->
         <button class="start-again-btn" id="start-again-btn">
@@ -2138,16 +2275,16 @@
                 if (this.isHeart) {
                     ctx.beginPath();
                     ctx.moveTo(0, 0);
-                    ctx.bezierCurveTo(-this.size/2, -this.size/2, -this.size, this.size/3, 0, this.size);
-                    ctx.bezierCurveTo(this.size, this.size/3, this.size/2, -this.size/2, 0, 0);
+                    ctx.bezierCurveTo(-this.size / 2, -this.size / 2, -this.size, this.size / 3, 0, this.size);
+                    ctx.bezierCurveTo(this.size, this.size / 3, this.size / 2, -this.size / 2, 0, 0);
                     ctx.fill();
                 } else {
                     ctx.beginPath();
                     for (let i = 0; i < 5; i++) {
                         ctx.lineTo(Math.cos((18 + i * 72) * Math.PI / 180) * this.size,
-                                   Math.sin((18 + i * 72) * Math.PI / 180) * this.size);
+                            Math.sin((18 + i * 72) * Math.PI / 180) * this.size);
                         ctx.lineTo(Math.cos((54 + i * 72) * Math.PI / 180) * (this.size / 2),
-                                   Math.sin((54 + i * 72) * Math.PI / 180) * (this.size / 2));
+                            Math.sin((54 + i * 72) * Math.PI / 180) * (this.size / 2));
                     }
                     ctx.closePath();
                     ctx.fill();
@@ -2225,7 +2362,7 @@
             const current = bgMusic.currentTime;
             const duration = bgMusic.duration || 59;
             currentTimeLabel.textContent = formatTime(current);
-            
+
             const pct = (current / duration) * 100;
             progressBar.style.width = `${pct}%`;
         });
@@ -2280,29 +2417,29 @@
         // Stage 1 (Envelope) -> Stage 2 (Greeting Card & Music Player)
         envelopeTrigger.addEventListener('click', (e) => {
             if (envelopeTrigger.classList.contains('open')) return;
-            
+
             const rect = envelopeTrigger.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;
             const centerY = rect.top + rect.height / 2;
-            
+
             triggerBurst(centerX, centerY);
             envelopeTrigger.classList.add('open');
-            
+
             setTimeout(() => {
                 stageEnvelope.style.opacity = '0';
                 stageEnvelope.style.transform = 'scale(0.95) translateY(-20px)';
                 stageEnvelope.style.filter = 'blur(8px)';
-                
+
                 setTimeout(() => {
                     stageEnvelope.style.display = 'none';
-                    
+
                     stageCard.style.display = 'block';
                     stageCard.offsetHeight;
-                    
+
                     stageCard.style.opacity = '1';
                     stageCard.style.transform = 'scale(1) translateY(0)';
                     stageCard.style.filter = 'blur(0)';
-                    
+
                     setTimeout(() => {
                         playAudio();
                     }, 500);
@@ -2316,12 +2453,12 @@
             stageCard.style.opacity = '0';
             stageCard.style.transform = 'scale(0.95) translateY(-20px)';
             stageCard.style.filter = 'blur(8px)';
-            
+
             setTimeout(() => {
                 stageCard.style.display = 'none';
                 stageAlbum.style.display = 'block';
                 stageAlbum.offsetHeight;
-                
+
                 stageAlbum.style.opacity = '1';
                 stageAlbum.style.transform = 'scale(1) translateY(0)';
                 stageAlbum.style.filter = 'blur(0)';
@@ -2332,21 +2469,21 @@
         const returnGreetingBtn = document.getElementById('return-greeting-btn');
         returnGreetingBtn.addEventListener('click', () => {
             const rect = returnGreetingBtn.getBoundingClientRect();
-            triggerBurst(rect.left + rect.width/2, rect.top + rect.height/2);
+            triggerBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
 
             stageAlbum.style.opacity = '0';
             stageAlbum.style.transform = 'scale(0.95) translateY(20px)';
             stageAlbum.style.filter = 'blur(8px)';
-            
+
             setTimeout(() => {
                 stageAlbum.style.display = 'none';
                 stageNotes.style.display = 'block';
                 stageNotes.offsetHeight;
-                
+
                 stageNotes.style.opacity = '1';
                 stageNotes.style.transform = 'scale(1) translateY(0)';
                 stageNotes.style.filter = 'blur(0)';
-                
+
                 setTimeout(() => {
                     stageNotes.classList.add('show-cards');
                 }, 100);
@@ -2359,13 +2496,13 @@
             stageNotes.style.opacity = '0';
             stageNotes.style.transform = 'scale(0.95) translateY(-20px)';
             stageNotes.style.filter = 'blur(8px)';
-            
+
             setTimeout(() => {
                 stageNotes.style.display = 'none';
-                
+
                 stageThanks.style.display = 'block';
                 stageThanks.offsetHeight;
-                
+
                 stageThanks.style.opacity = '1';
                 stageThanks.style.transform = 'scale(1) translateY(0)';
                 stageThanks.style.filter = 'blur(0)';
@@ -2376,18 +2513,18 @@
         const thanksProceedBtn = document.getElementById('thanks-proceed-btn');
         thanksProceedBtn.addEventListener('click', () => {
             const rect = thanksProceedBtn.getBoundingClientRect();
-            triggerBurst(rect.left + rect.width/2, rect.top + rect.height/2);
+            triggerBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
 
             stageThanks.style.opacity = '0';
             stageThanks.style.transform = 'scale(0.95) translateY(-20px)';
             stageThanks.style.filter = 'blur(8px)';
-            
+
             setTimeout(() => {
                 stageThanks.style.display = 'none';
-                
+
                 stageLetter.style.display = 'flex';
                 stageLetter.offsetHeight;
-                
+
                 stageLetter.style.opacity = '1';
                 stageLetter.style.transform = 'scale(1) translateY(0)';
                 stageLetter.style.filter = 'blur(0)';
@@ -2398,38 +2535,38 @@
         const startAgainBtn = document.getElementById('start-again-btn');
         startAgainBtn.addEventListener('click', () => {
             const rect = startAgainBtn.getBoundingClientRect();
-            triggerBurst(rect.left + rect.width/2, rect.top + rect.height/2);
+            triggerBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
 
             // Fade out final letter stage
             stageLetter.style.opacity = '0';
             stageLetter.style.transform = 'scale(0.95) translateY(20px)';
             stageLetter.style.filter = 'blur(8px)';
-            
+
             setTimeout(() => {
                 stageLetter.style.display = 'none';
-                
+
                 // --- Reset all state managers ---
                 // 1. Close Envelope
                 envelopeTrigger.classList.remove('open');
-                
+
                 // 2. Unflip Note cards
                 flipCards.forEach(c => c.classList.remove('flipped'));
                 flippedCardsSet.clear();
                 notesProceedBtn.classList.remove('show');
                 stageNotes.classList.remove('show-cards');
-                
+
                 // 3. Reset Music Stream
                 pauseAudio();
                 bgMusic.currentTime = 0;
-                
+
                 // 4. Reset Album carousel slides
                 currentSlide = 0;
                 updateCarousel();
-                
+
                 // 5. Restore Envelope landing
                 stageEnvelope.style.display = 'flex';
                 stageEnvelope.offsetHeight;
-                
+
                 stageEnvelope.style.opacity = '1';
                 stageEnvelope.style.transform = 'scale(1) translateY(0)';
                 stageEnvelope.style.filter = 'blur(0)';
@@ -2451,7 +2588,7 @@
                 triggerBurst(clickX, clickY);
 
                 card.classList.add('flipped');
-                
+
                 const noteId = card.getAttribute('data-note-id');
                 flippedCardsSet.add(noteId);
 
@@ -2475,7 +2612,7 @@
         function updateCarousel() {
             const offset = -currentSlide * 33.3333;
             carouselTrack.style.transform = `translateX(${offset}%)`;
-            
+
             dots.forEach((dot, index) => {
                 if (index === currentSlide) {
                     dot.classList.add('active');
@@ -2505,4 +2642,5 @@
 
     </script>
 </body>
+
 </html>

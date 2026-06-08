@@ -1,7 +1,7 @@
 {
   "name": "kajol-backend",
   "version": "1.0.0",
-  "description": "Backend API for Best Friend's Day Webpage",
+  "description": "Backend API for National Bestfriend Day Webpage",
   "main": "server.js",
   "type": "module",
   "scripts": {

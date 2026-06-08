@@ -70,7 +70,7 @@ const RuledLetter = ({ letter, onReset }) => {
 
         {/* Lined body content */}
         {letter.paragraphs && letter.paragraphs.map((p, idx) => (
-          <p className="letter-body-p" key={idx}>{p}</p>
+          <p className={`letter-body-p ${idx === 2 ? 'highlight-p' : ''}`} key={idx}>{p}</p>
         ))}
 
         {/* Dotted signoff line */}
@@ -80,10 +80,10 @@ const RuledLetter = ({ letter, onReset }) => {
         </div>
 
         <p className="letter-signature">{letter.signature || 'with love (and zero regrets),'}</p>
-        <span className="letter-tag-footer">{letter.tagFooter || '— YOUR DUMB FRIEND'}</span>
+        <span className="letter-tag-footer">{letter.tagFooter || '— YOUR BHONDU FRIND'}</span>
       </div>
 
-      <span className="letter-outside-footer">{letter.outsideFooter || 'WITH LOVE · YOUR DUMB FRIEND'}</span>
+      <span className="letter-outside-footer">{letter.outsideFooter || 'WITH LOVE · YOUR BHONDU FRIND'}</span>
 
       <button className="start-again-btn" onClick={handleReset}>
         ↺ START AGAIN

@@ -30,7 +30,7 @@ const Envelope = ({ onComplete }) => {
 
       <h1 className="envelope-title">a little something for you</h1>
       <div className="envelope-subtitle">
-        happy friendship day <span className="sparkle-char">✦</span>
+        happy national bestfriend day <span className="sparkle-char">✦</span>
       </div>
 
       <div className="sticker-wrapper">

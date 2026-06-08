@@ -63,7 +63,7 @@ const ThankYou = ({ onNext }) => {
         <h2 className="thanks-title">thank you, bestie.</h2>
 
         <p className="thanks-message">
-          for the laughs, the comebacks, the bad jokes, and the rare-but-perfect serious talks. for being the constant. happy friendship day — you deserve every bit of this and more.
+          for the laughs, the comebacks, the bad jokes, and the rare-but-perfect serious talks. for being the constant. happy national bestfriend day — you deserve every bit of this and more.
         </p>
 
         <button className="album-trigger-btn" id="thanks-proceed-btn" onClick={handleProceed}>

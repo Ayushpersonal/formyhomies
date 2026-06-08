@@ -83,7 +83,11 @@ const Scrapbook = ({ memories, onNext }) => {
                   </svg>
 
                   <div className="scrapbook-img-frame">
-                    <img className="scrapbook-img" src={`/${memory.img}`} alt={`Memory ${memory.index}`} />
+                    <img
+                      className={`scrapbook-img ${memory.img === 'all3.jpeg' ? 'rotate-90-full' : ''}`}
+                      src={`/${memory.img}`}
+                      alt={`Memory ${memory.index}`}
+                    />
                   </div>
                   <div className="scrapbook-info">
                     <span className="memory-number">Memory {memory.index} of {totalSlides.toString().padStart(2, '0')}</span>

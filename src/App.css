@@ -988,6 +988,14 @@ h2.card-title {
     object-fit: cover;
 }
 
+.scrapbook-img.rotate-90-full {
+    width: 100%;
+    height: 177.86%;
+    transform: rotate(-90deg);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
 .scrapbook-info {
     text-align: center;
 }
@@ -1182,6 +1190,13 @@ h2.card-title {
     color: #334155;
     margin: 0 0 28px 0;
     padding-left: 5px;
+}
+
+.letter-body-p.highlight-p {
+    font-family: 'Caveat', cursive;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #db2777;
 }
 
 .letter-end-divider {

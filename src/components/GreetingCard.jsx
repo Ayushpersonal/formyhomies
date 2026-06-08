@@ -59,7 +59,7 @@ const GreetingCard = ({
           ❤️ FOR MY FAVOURITE PARTNER-IN-CRIME
         </div>
 
-        <h2 className="card-title">Happy Friendship Day</h2>
+        <h2 className="card-title">Happy National Best Friend Day</h2>
         <div className="card-subtitle">for my bestie ✦</div>
 
         <div className="card-divider">
